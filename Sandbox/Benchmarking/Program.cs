@@ -21,7 +21,7 @@ namespace Benchmarking
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception occured:{Environment.NewLine}{ex}");
+                Console.WriteLine($"Exception occurred:{Environment.NewLine}{ex}");
                 return -1;
             }
             finally
