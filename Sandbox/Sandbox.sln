@@ -3,20 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{6C0DA377-A7BB-4F40-8D62-6F76B6ABEBE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.TestConsoleApp", "Applications\Sandbox.TestConsoleApp\Sandbox.TestConsoleApp.csproj", "{6C0DA377-A7BB-4F40-8D62-6F76B6ABEBE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataflowPipeline", "DataflowPipeline\DataflowPipeline.csproj", "{1E3EDD67-0405-46E5-B16C-3F752122D3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.DataflowPipeline", "Applications\Sandbox.DataflowPipeline\Sandbox.DataflowPipeline.csproj", "{1E3EDD67-0405-46E5-B16C-3F752122D3B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsMountPointIssue", "AwsMountPointIssue\AwsMountPointIssue.csproj", "{3F27D46B-9C4B-4261-BF2A-FEFD35ED290A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.AwsMountPointIssue", "Articles\Sandbox.AwsMountPointIssue\Sandbox.AwsMountPointIssue.csproj", "{3F27D46B-9C4B-4261-BF2A-FEFD35ED290A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC3D3EF9-253F-4741-A315-478A956ED6C2}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Academy", "Academy\Academy\Academy.csproj", "{45D586C5-FD62-40B8-BACE-F3331D0DD13B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Academy", "Tests\Sandbox.Academy\Sandbox.Academy.csproj", "{45D586C5-FD62-40B8-BACE-F3331D0DD13B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarking", "Benchmarking\Benchmarking.csproj", "{FA0E152B-E996-4EC6-BE39-87290825051F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Benchmarking", "Applications\Sandbox.Benchmarking\Sandbox.Benchmarking.csproj", "{FA0E152B-E996-4EC6-BE39-87290825051F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{19E6F9E9-D151-47A3-BFB3-E541FDA4E18E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{8B0E4B5B-7701-4D25-B236-B6A23DCE0052}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A95C2268-6FD4-4945-B5DC-D09E5FFE0452}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{0C09A10F-C50C-437B-B29A-3EC71D64881C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +55,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C0DA377-A7BB-4F40-8D62-6F76B6ABEBE7} = {19E6F9E9-D151-47A3-BFB3-E541FDA4E18E}
+		{1E3EDD67-0405-46E5-B16C-3F752122D3B1} = {19E6F9E9-D151-47A3-BFB3-E541FDA4E18E}
+		{3F27D46B-9C4B-4261-BF2A-FEFD35ED290A} = {0C09A10F-C50C-437B-B29A-3EC71D64881C}
+		{45D586C5-FD62-40B8-BACE-F3331D0DD13B} = {A95C2268-6FD4-4945-B5DC-D09E5FFE0452}
+		{FA0E152B-E996-4EC6-BE39-87290825051F} = {19E6F9E9-D151-47A3-BFB3-E541FDA4E18E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0522F328-CC96-4FA8-965E-FAF4A265207A}
