@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using Gridsum.DataflowEx;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public static class Program
     {

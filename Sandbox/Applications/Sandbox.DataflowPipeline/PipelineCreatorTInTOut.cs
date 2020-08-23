@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public sealed class PipelineCreator<TIn, TOut>
     {

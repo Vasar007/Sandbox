@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     internal static class WordFinder
     {

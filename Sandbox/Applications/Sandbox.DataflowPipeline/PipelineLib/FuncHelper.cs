@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     internal static class FuncHelper
     {

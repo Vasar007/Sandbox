@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace CommonTasksLINQ.Test
+namespace Sandbox.CommonTasksLINQ.Test
 {
     public class CTask6Test
     {

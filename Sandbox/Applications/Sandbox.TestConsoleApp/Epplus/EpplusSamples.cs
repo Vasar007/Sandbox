@@ -2,7 +2,7 @@
 using System.IO;
 using OfficeOpenXml;
 
-namespace TestConsoleApp.Epplus
+namespace Sandbox.TestConsoleApp.Epplus
 {
     internal static class EpplusSamples
     {

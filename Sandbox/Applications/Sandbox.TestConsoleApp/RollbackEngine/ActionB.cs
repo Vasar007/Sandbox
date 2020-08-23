@@ -1,4 +1,4 @@
-﻿namespace TestConsoleApp.RollbackEngine
+﻿namespace Sandbox.TestConsoleApp.RollbackEngine
 {
     public sealed class ActionB : IStatefullTask<State>
     {

@@ -1,4 +1,4 @@
-﻿namespace DataflowPipeline
+﻿namespace Sandbox.DataflowPipeline
 {
     public static class IdentifierDataFactory
     {

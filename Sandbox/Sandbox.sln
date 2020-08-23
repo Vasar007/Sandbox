@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A95C2268
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{0C09A10F-C50C-437B-B29A-3EC71D64881C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.QuartzSample", "Applications\Sandbox.QuartzSample\Sandbox.QuartzSample.csproj", "{BA390CB9-E060-4ACD-8EB0-5B91792F4161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -52,6 +54,10 @@ Global
 		{FA0E152B-E996-4EC6-BE39-87290825051F}.Debug|x64.Build.0 = Debug|x64
 		{FA0E152B-E996-4EC6-BE39-87290825051F}.Release|x64.ActiveCfg = Release|x64
 		{FA0E152B-E996-4EC6-BE39-87290825051F}.Release|x64.Build.0 = Release|x64
+		{BA390CB9-E060-4ACD-8EB0-5B91792F4161}.Debug|x64.ActiveCfg = Debug|x64
+		{BA390CB9-E060-4ACD-8EB0-5B91792F4161}.Debug|x64.Build.0 = Debug|x64
+		{BA390CB9-E060-4ACD-8EB0-5B91792F4161}.Release|x64.ActiveCfg = Release|x64
+		{BA390CB9-E060-4ACD-8EB0-5B91792F4161}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{3F27D46B-9C4B-4261-BF2A-FEFD35ED290A} = {0C09A10F-C50C-437B-B29A-3EC71D64881C}
 		{45D586C5-FD62-40B8-BACE-F3331D0DD13B} = {A95C2268-6FD4-4945-B5DC-D09E5FFE0452}
 		{FA0E152B-E996-4EC6-BE39-87290825051F} = {19E6F9E9-D151-47A3-BFB3-E541FDA4E18E}
+		{BA390CB9-E060-4ACD-8EB0-5B91792F4161} = {19E6F9E9-D151-47A3-BFB3-E541FDA4E18E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0522F328-CC96-4FA8-965E-FAF4A265207A}

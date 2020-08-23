@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using GoogleTranslateFreeApi;
 
-namespace LINQ_Lab
+namespace Sandbox.LINQ_Lab
 {
     public static class Task7
     {

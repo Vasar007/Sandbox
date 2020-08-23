@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TestConsoleApp.AsyncFromSync
+namespace Sandbox.TestConsoleApp.AsyncFromSync
 {
     public static class ElisingAwaitIsBadIdea
     {

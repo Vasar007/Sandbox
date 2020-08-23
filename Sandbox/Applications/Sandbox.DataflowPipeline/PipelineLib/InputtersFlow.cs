@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks.Dataflow;
 using Gridsum.DataflowEx;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public sealed class InputtersFlow : Dataflow<string, IReadOnlyList<string>>
     {

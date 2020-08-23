@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
 
-namespace TestConsoleApp.InteropExcel
+namespace Sandbox.TestConsoleApp.InteropExcel
 {
     internal sealed class InteropExcelSamples
     {

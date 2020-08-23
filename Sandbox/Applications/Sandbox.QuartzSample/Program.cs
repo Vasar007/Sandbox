@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sandbox.AwsMountPointIssue
+namespace Sandbox.QuartzSample
 {
     public static class Program
     {

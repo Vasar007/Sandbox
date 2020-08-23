@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     internal static class Options
     {

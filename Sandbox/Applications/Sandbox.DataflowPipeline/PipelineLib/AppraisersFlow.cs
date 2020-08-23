@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks.Dataflow;
 using Gridsum.DataflowEx;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public sealed class AppraisersFlow : Dataflow<IReadOnlyList<IData>, IReadOnlyList<string>>
     {

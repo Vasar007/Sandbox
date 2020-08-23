@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TestConsoleApp.AsyncFromSync
+namespace Sandbox.TestConsoleApp.AsyncFromSync
 {
     public sealed class LimitedConcurrencyLevelTaskScheduler : TaskScheduler
     {

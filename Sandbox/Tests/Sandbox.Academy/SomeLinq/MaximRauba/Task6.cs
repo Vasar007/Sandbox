@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace LINQ_Lab
+namespace Sandbox.LINQ_Lab
 {
     public static class Task6
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CommonTasksLINQ
+namespace Sandbox.CommonTasksLINQ
 {
     public class CUserDTO
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace LINQ_Lab
+namespace Sandbox.LINQ_Lab
 {
     public class Person
     {

@@ -1,4 +1,4 @@
-﻿namespace TestConsoleApp.RollbackEngine
+﻿namespace Sandbox.TestConsoleApp.RollbackEngine
 {
     internal static class RollbackEngineSamples
     {

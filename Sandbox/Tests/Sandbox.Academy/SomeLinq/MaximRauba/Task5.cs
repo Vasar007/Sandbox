@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace LINQ_Lab
+namespace Sandbox.LINQ_Lab
 {
     public static class Task5
     {

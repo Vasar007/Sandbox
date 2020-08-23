@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CommonTasksLINQ
+namespace Sandbox.CommonTasksLINQ
 {
     public static class STaskLINQ
     {

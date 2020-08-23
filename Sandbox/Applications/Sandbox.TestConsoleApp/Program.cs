@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MathNet.Numerics;
 
-namespace TestConsoleApp
+namespace Sandbox.TestConsoleApp
 {
     public static class Program
     {

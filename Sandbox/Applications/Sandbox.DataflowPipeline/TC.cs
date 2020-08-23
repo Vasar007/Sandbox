@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public sealed class TC<TInput, TOutput>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks.Dataflow;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public sealed class PipelineBlock<TKey>
     {

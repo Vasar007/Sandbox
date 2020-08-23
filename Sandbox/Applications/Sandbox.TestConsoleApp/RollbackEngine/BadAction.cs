@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestConsoleApp.RollbackEngine
+namespace Sandbox.TestConsoleApp.RollbackEngine
 {
     public sealed class BadAction : IStatefullTask<State>
     {

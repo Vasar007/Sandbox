@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks.Dataflow;
 
-namespace DataflowPipeline
+namespace Sandbox.DataflowPipeline
 {
     public static class PipelineBlockFactory
     {

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.Contracts;
 
-namespace TestConsoleApp.RollbackEngine
+namespace Sandbox.TestConsoleApp.RollbackEngine
 {
     internal interface IStatefullTask<TState>
     {
