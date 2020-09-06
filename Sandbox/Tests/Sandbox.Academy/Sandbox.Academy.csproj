@@ -1,10 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <Platforms>x64</Platforms>
-  </PropertyGroup>
-
   <PropertyGroup>
+    <Platforms>x64</Platforms>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>

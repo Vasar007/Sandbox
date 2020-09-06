@@ -1,10 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <Platforms>x64</Platforms>
-  </PropertyGroup>
-
   <PropertyGroup>
+    <Platforms>x64</Platforms>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
