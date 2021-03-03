@@ -15,14 +15,14 @@ namespace Sandbox.QuartzSample
             try
             {
                 await QuartzStartSheduller();
-                //await QuartzCreateJobWithTriggerAndSheduleJob();
-                //Console.ReadLine();
+                await QuartzCreateJobWithTriggerAndSheduleJob();
+                Console.ReadLine();
 
                 return 0;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception occured:{Environment.NewLine}{ex}");
+                Console.WriteLine($"Exception occurred:{Environment.NewLine}{ex}");
                 return -1;
             }
             finally
@@ -36,7 +36,7 @@ namespace Sandbox.QuartzSample
             LogProvider.SetCurrentLogProvider(new ConsoleLogProvider());
 
             // Grab the Scheduler instance from the Factory
-            StdSchedulerFactory factory = new StdSchedulerFactory();
+            var factory = new StdSchedulerFactory();
             IScheduler scheduler = await factory.GetScheduler();
 
             // and start it off
@@ -54,7 +54,7 @@ namespace Sandbox.QuartzSample
             LogProvider.SetCurrentLogProvider(new ConsoleLogProvider());
 
             // Grab the Scheduler instance from the Factory
-            StdSchedulerFactory factory = new StdSchedulerFactory();
+            var factory = new StdSchedulerFactory();
             IScheduler scheduler = await factory.GetScheduler();
 
             // and start it off
@@ -94,7 +94,7 @@ namespace Sandbox.QuartzSample
             {
                 if (level >= LogLevel.Info && func != null)
                 {
-                    Console.WriteLine("[" + DateTime.Now.ToLongTimeString() + "] [" + level + "] " + func(), parameters);
+                    Console.WriteLine($"[{DateTime.Now.ToLongTimeString()}] [{level}] {func()}", parameters);
                 }
                 return true;
             };

@@ -57,12 +57,12 @@ namespace Benchmarking
         [Benchmark]
         public Action<TestClass, string> CreateReadOnlyPropertySetternWithIL()
         {
-            (FieldInfo backingField, PropertyInfo propertyInfo) = GetReflectionInfo();
+            (FieldInfo backingField, PropertyInfo? propertyInfo) = GetReflectionInfo();
 
             var method = new DynamicMethod(
               name: $"Set_{backingField.Name}",
               returnType: null,
-              parameterTypes: new[] { propertyInfo.DeclaringType, propertyInfo.PropertyType },
+              parameterTypes: new[] { propertyInfo?.DeclaringType, propertyInfo?.PropertyType },
               restrictedSkipVisibility: true
             );
 
@@ -81,7 +81,7 @@ namespace Benchmarking
             _backingFieldILSetter(_instance, "New value 2");
         }
 
-        private static (FieldInfo backingField, PropertyInfo propertyInfo) GetReflectionInfo()
+        private static (FieldInfo backingField, PropertyInfo? propertyInfo) GetReflectionInfo()
         {
             var type = typeof(TestClass);
             var propertyInfo = type.GetProperty(nameof(TestClass.MyProperty));
@@ -92,15 +92,15 @@ namespace Benchmarking
                     field.Attributes.HasFlag(FieldAttributes.Private) &&
                     field.Attributes.HasFlag(FieldAttributes.InitOnly) &&
                     field.CustomAttributes.Any(attr => attr.AttributeType == typeof(CompilerGeneratedAttribute)) &&
-                    (field.DeclaringType == propertyInfo.DeclaringType) &&
-                    field.FieldType.IsAssignableFrom(propertyInfo.PropertyType) &&
+                    (field.DeclaringType == propertyInfo?.DeclaringType) &&
+                    field.FieldType.IsAssignableFrom(propertyInfo?.PropertyType) &&
                     field.Name.StartsWith("<" + propertyInfo.Name + ">", StringComparison.Ordinal) // Dangerous code. Name of backing field is internal detail of .NET.
                 );
 
             if (backingField is null)
             {
                 throw new InvalidOperationException(
-                    $"Failed to find backing field for property '{propertyInfo.Name}'."
+                    $"Failed to find backing field for property '{propertyInfo?.Name}'."
                 );
             }
 
