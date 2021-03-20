@@ -22,8 +22,8 @@ namespace Sandbox.CommonTasksLINQ.Test
                 new CUserDTO {Name = "Anton"}
             };
 
-            String actual = STaskLINQ.Task4Concat(users, ' ', 3);
-            String expected = "Vasily Anton";
+            string actual = STaskLINQ.Task4Concat(users, ' ', 3);
+            string expected = "Vasily Anton";
 
             Assert.NotNull(actual);
             Assert.True(expected.IsEqualWithInvariantCulture(actual));
@@ -41,8 +41,8 @@ namespace Sandbox.CommonTasksLINQ.Test
                 new CUserDTO {Name = "Anton"}
             };
 
-            String actual = STaskLINQ.Task4Concat(users, '-', 2);
-            String expected = "Arthur-Vasily-Anton";
+            string actual = STaskLINQ.Task4Concat(users, '-', 2);
+            string expected = "Arthur-Vasily-Anton";
 
             Assert.NotNull(actual);
             Assert.True(expected.IsEqualWithInvariantCulture(actual));
@@ -60,8 +60,8 @@ namespace Sandbox.CommonTasksLINQ.Test
                 new CUserDTO {Name = "Anton"}
             };
 
-            String actual = STaskLINQ.Task4Concat(users, '.', 0);
-            String expected = "Mark.August.Arthur.Vasily.Anton";
+            string actual = STaskLINQ.Task4Concat(users, '.', 0);
+            string expected = "Mark.August.Arthur.Vasily.Anton";
 
             Assert.NotNull(actual);
             Assert.True(expected.IsEqualWithInvariantCulture(actual));

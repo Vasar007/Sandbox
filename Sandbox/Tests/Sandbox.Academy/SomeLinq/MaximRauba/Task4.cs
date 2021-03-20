@@ -46,8 +46,8 @@ namespace Sandbox.LINQ_Lab
                 new Person("Anton")
             };
 
-            String actual = Task4.Concat(users, ' ');
-            String expected = "Vasily Anton";
+            string actual = Task4.Concat(users, ' ');
+            string expected = "Vasily Anton";
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual);

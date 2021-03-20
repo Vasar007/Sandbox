@@ -13,7 +13,7 @@ namespace Sandbox.CommonTasksLINQ.Test
         [Fact]
         public void TestTask7Simple()
         {
-            IReadOnlyDictionary<String, String> translator = new Dictionary<String, String>
+            IReadOnlyDictionary<string, string> translator = new Dictionary<string, string>
             {
                 { "this", "этот" },
                 { "dog", "собака" },
@@ -27,10 +27,10 @@ namespace Sandbox.CommonTasksLINQ.Test
                 { "after", "после" },
                 { "lunch", "обед" }
             };
-            String text = "This dog eats too much vegetables after lunch";
+            string text = "This dog eats too much vegetables after lunch";
 
-            IList<String> actual = STaskLINQ.Task7TranslateAndProcess(text, translator, 3);
-            IReadOnlyList<String> expected = new List<String>
+            IList<string> actual = STaskLINQ.Task7TranslateAndProcess(text, translator, 3);
+            IReadOnlyList<string> expected = new List<string>
             {
                "ЭТОТ СОБАКА ЕСТ",
                "СЛИШКОМ МНОГО ОВОЩИ",
@@ -47,7 +47,7 @@ namespace Sandbox.CommonTasksLINQ.Test
         [Fact]
         public void TestTask7OnePerPage()
         {
-            IReadOnlyDictionary<String, String> translator = new Dictionary<String, String>
+            IReadOnlyDictionary<string, string> translator = new Dictionary<string, string>
             {
                 { "this", "этот" },
                 { "dog", "собака" },
@@ -61,10 +61,10 @@ namespace Sandbox.CommonTasksLINQ.Test
                 { "after", "после" },
                 { "lunch", "обед" }
             };
-            String text = "This vegetable eats too much dogs after lunch";
+            string text = "This vegetable eats too much dogs after lunch";
 
-            IList<String> actual = STaskLINQ.Task7TranslateAndProcess(text, translator, 1);
-            IReadOnlyList<String> expected = new List<String>
+            IList<string> actual = STaskLINQ.Task7TranslateAndProcess(text, translator, 1);
+            IReadOnlyList<string> expected = new List<string>
             {
                 "ЭТОТ", "ОВОЩЬ", "ЕСТ", "СЛИШКОМ", "МНОГО", "СОБАКИ", "ПОСЛЕ", "ОБЕД"
             };
@@ -79,7 +79,7 @@ namespace Sandbox.CommonTasksLINQ.Test
         [Fact]
         public void TestTask7Exception()
         {
-            IReadOnlyDictionary<String, String> translator = new Dictionary<String, String>
+            IReadOnlyDictionary<string, string> translator = new Dictionary<string, string>
             {
                 { "this", "этот" },
                 { "dog", "собака" },
@@ -92,7 +92,7 @@ namespace Sandbox.CommonTasksLINQ.Test
                 { "after", "после" },
                 { "lunch", "обед" }
             };
-            String text = "This dog eats too much vegetables after lunch";
+            string text = "This dog eats too much vegetables after lunch";
 
             Assert.Throws<ArgumentOutOfRangeException>(
                 () => STaskLINQ.Task7TranslateAndProcess(text, translator, -1)

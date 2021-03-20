@@ -6,25 +6,25 @@ namespace Sandbox.CommonTasksLINQ
 {
     public static class STaskLINQ
     {
-        public static Boolean IsEqualWithInvariantCulture(this String str, String other)
+        public static bool IsEqualWithInvariantCulture(this string str, string other)
         {
-            return String.Compare(str, other, StringComparison.InvariantCulture) == 0;
+            return string.Compare(str, other, StringComparison.InvariantCulture) == 0;
         }
 
-        private static String CleanString(String value)
+        private static string CleanString(string value)
         {
-            Char[] replacement = {',', ':', '—', '–', ';', '"', '\'', '(', ')', '[', ']', '<', '>',
+            char[] replacement = {',', ':', '—', '–', ';', '"', '\'', '(', ')', '[', ']', '<', '>',
                                   '/', '@', '.', '\n', '\r', '\t'};
-            return String.Join("", value.Trim().Split(replacement)).Replace(" - ", " ");
+            return string.Join("", value.Trim().Split(replacement)).Replace(" - ", " ");
         }
 
         // 4. Для выборки элементов (предполагая, что у каждого элемента есть имя Name) произвести
         // конкатенацию имен всех элементов, кроме первых трех, в одну строку, разделенных заданным
         // параметром (символом).
-        public static String Task4Concat(IReadOnlyCollection<CUserDTO> users, Char delimiter,
-            Int32 shiftIndex)
+        public static string Task4Concat(IReadOnlyCollection<CUserDTO> users, char delimiter,
+            int shiftIndex)
         {
-            return String.Join(delimiter, users.Skip(shiftIndex).Select(user => user.Name));
+            return string.Join(delimiter, users.Skip(shiftIndex).Select(user => user.Name));
         }
 
         // 5. Найти все элементы в последовательности/выборке, длина имени (количество символов) у
@@ -40,14 +40,14 @@ namespace Sandbox.CommonTasksLINQ
         // по убыванию количества элементов в каждой группе, вывести информацию по каждой группе:
         // длина (количество букв в словах группы), количество элементов. Знаки препинания не
         // учитывать.
-        public static IList<List<String>> Task6GroupAndSort(String sentence)
+        public static IList<List<string>> Task6GroupAndSort(string sentence)
         {
-            String[] filteredSentence = CleanString(sentence).Split(' ');
+            string[] filteredSentence = CleanString(sentence).Split(' ');
 
-            List<List<String>> grouping = filteredSentence
+            List<List<string>> grouping = filteredSentence
                 .GroupBy(
                     word => word.Length,
-                    (key, group) => new List<String>(group)
+                    (key, group) => new List<string>(group)
                 )
                 .OrderByDescending(x => x.Count)
                 .ToList();
@@ -61,19 +61,19 @@ namespace Sandbox.CommonTasksLINQ
         // более N слов и при этом каждое слово напечатано в верхнем регистре. Перевод необходимо
         // осуществлять пословно без учета грамматики. Считается, что каждое слово имеет перевод в
         // словаре.
-        public static IList<String> Task7TranslateAndProcess(String text,
-            IReadOnlyDictionary<String, String> translator, Int32 n)
+        public static IList<string> Task7TranslateAndProcess(string text,
+            IReadOnlyDictionary<string, string> translator, int n)
         {
             if (n <= 0) throw new ArgumentOutOfRangeException(nameof(n), "'n' must be positive");
 
-            String[] filteredText = CleanString(text).ToLowerInvariant().Split(' ');
+            string[] filteredText = CleanString(text).ToLowerInvariant().Split(' ');
 
-            List<String> grouping = filteredText
+            List<string> grouping = filteredText
                 .Select((value, index) => (PageNum: index / n, Value: value))
                 .GroupBy(
                     word => word.PageNum,
                     word => translator[word.Value].ToUpperInvariant(),
-                    (key, group) => String.Join(" ", group)
+                    (key, group) => string.Join(" ", group)
                 )
                 .ToList();
 

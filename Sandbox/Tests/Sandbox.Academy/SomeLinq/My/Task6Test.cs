@@ -13,33 +13,33 @@ namespace Sandbox.CommonTasksLINQ.Test
         [Fact]
         public void TestTask6Simple()
         {
-            String sentence = "Это что же получается: ходишь, ходишь в школу, а потом бац - " +
+            string sentence = "Это что же получается: ходишь, ходишь в школу, а потом бац - " +
                               "вторая смена";
 
-            IList<List<String>> actual = STaskLINQ.Task6GroupAndSort(sentence);
-            IReadOnlyList<List<String>> expected = new List<List<String>>
+            IList<List<string>> actual = STaskLINQ.Task6GroupAndSort(sentence);
+            IReadOnlyList<List<string>> expected = new List<List<string>>
             {
-                new List<String>
+                new List<string>
                 {
                     "Это", "что", "бац"
                 },
-                new List<String>
+                new List<string>
                 {
                     "ходишь", "ходишь", "вторая"
                 },
-                new List<String>
+                new List<string>
                 {
                     "школу", "потом", "смена"
                 },
-                new List<String>
+                new List<string>
                 {
                     "в", "а"
                 },
-                new List<String>
+                new List<string>
                 {
                     "же"
                 },
-                new List<String>
+                new List<string>
                 {
                     "получается"
                 },
@@ -55,12 +55,12 @@ namespace Sandbox.CommonTasksLINQ.Test
         [Fact]
         public void TestTask6OneGroup()
         {
-            String sentence = "Ты, мы, он - ок";
+            string sentence = "Ты, мы, он - ок";
 
-            IList<List<String>> actual = STaskLINQ.Task6GroupAndSort(sentence);
-            IReadOnlyList<List<String>> expected = new List<List<String>>
+            IList<List<string>> actual = STaskLINQ.Task6GroupAndSort(sentence);
+            IReadOnlyList<List<string>> expected = new List<List<string>>
             {
-                new List<String>
+                new List<string>
                 {
                     "Ты", "мы", "он", "ок"
                 }
@@ -76,20 +76,20 @@ namespace Sandbox.CommonTasksLINQ.Test
         [Fact]
         public void TestTask6ThreeGroups()
         {
-            String sentence = "жить или не жить - вот чем мы...";
+            string sentence = "жить или не жить - вот чем мы...";
 
-            IList<List<String>> actual = STaskLINQ.Task6GroupAndSort(sentence);
-            IReadOnlyList<List<String>> expected = new List<List<String>>
+            IList<List<string>> actual = STaskLINQ.Task6GroupAndSort(sentence);
+            IReadOnlyList<List<string>> expected = new List<List<string>>
             {
-                new List<String>
+                new List<string>
                 {
                     "или", "вот", "чем"
                 },
-                new List<String>
+                new List<string>
                 {
                     "жить", "жить"
                 },
-                new List<String>
+                new List<string>
                 {
                     "не", "мы"
                 }

@@ -4,11 +4,11 @@ namespace Sandbox.CommonTasksLINQ
 {
     public class CUserDTO
     {
-        public String Name { get; set; } = String.Empty;
+        public string Name { get; set; } = string.Empty;
 
         #region Object Overridden Methods
 
-        public override String ToString()
+        public override string ToString()
         {
             return Name;
         }
