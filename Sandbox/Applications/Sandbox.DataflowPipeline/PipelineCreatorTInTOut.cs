@@ -8,7 +8,7 @@ namespace Sandbox.DataflowPipeline
 {
     public sealed class PipelineCreator<TIn, TOut>
     {
-        private readonly List<IDataflowBlock> _transformBlocks = new List<IDataflowBlock>();
+        private readonly List<IDataflowBlock> _transformBlocks = new();
 
 
         public PipelineCreator()
@@ -35,7 +35,7 @@ namespace Sandbox.DataflowPipeline
             if (_transformBlocks.Count > 0)
             {
                 IDataflowBlock lastStep = _transformBlocks.Last();
-                var targetBlock = lastStep as ISourceBlock<TC<TLocalIn, TOut>>;
+                var targetBlock = (ISourceBlock<TC<TLocalIn, TOut>>) lastStep;
 
                 targetBlock.LinkTo(
                     step,
@@ -61,7 +61,7 @@ namespace Sandbox.DataflowPipeline
             );
 
             IDataflowBlock lastStep = _transformBlocks.Last();
-            var setResultBlock = lastStep as ISourceBlock<TC<TOut, TOut>>;
+            var setResultBlock = (ISourceBlock<TC<TOut, TOut>>) lastStep;
 
             setResultBlock.LinkTo(setResultStep);
 
@@ -70,7 +70,7 @@ namespace Sandbox.DataflowPipeline
 
         public Task<TOut> Execute(TIn input)
         {
-            var firstStep = _transformBlocks.First() as ITargetBlock<TC<TIn, TOut>>;
+            var firstStep = (ITargetBlock<TC<TIn, TOut>>) _transformBlocks.First();
             var tcs = new TaskCompletionSource<TOut>();
 
             firstStep.SendAsync(new TC<TIn, TOut>(input, tcs));

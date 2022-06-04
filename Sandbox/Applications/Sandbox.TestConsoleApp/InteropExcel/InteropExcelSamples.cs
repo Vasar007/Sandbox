@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using Microsoft.Office.Interop.Excel;
 
 namespace Sandbox.TestConsoleApp.InteropExcel
 {
+    [SupportedOSPlatform("windows")]
     internal sealed class InteropExcelSamples
     {
         public static void WrapRawExcelCall()

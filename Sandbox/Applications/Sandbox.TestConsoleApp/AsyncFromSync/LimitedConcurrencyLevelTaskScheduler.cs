@@ -55,7 +55,7 @@ namespace Sandbox.TestConsoleApp.AsyncFromSync
                                 break;
                             }
 
-                            item = _tasks.First.Value;
+                            item = _tasks.First!.Value;
                             _tasks.RemoveFirst();
                         }
 

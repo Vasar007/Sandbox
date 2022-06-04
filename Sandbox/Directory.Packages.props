@@ -1,0 +1,26 @@
+<Project>
+
+  <ItemGroup>
+    <PackageVersion Include="BenchmarkDotNet" Version="0.13.1" />
+    <PackageVersion Include="coverlet.collector" Version="3.1.2" />
+    <PackageVersion Include="EPPlus" Version="6.0.4" />
+    <PackageVersion Include="FSharp.Core" Version="6.0.4" />
+    <PackageVersion Include="FsUnit.xUnit" Version="5.0.0" />
+    <PackageVersion Include="FluentAssertions" Version="6.7.0" />
+    <PackageVersion Include="GoogleTranslateFreeApi" Version="1.1.1" />
+    <PackageVersion Include="Gridsum.DataflowEx" Version="2.0.0" />
+    <PackageVersion Include="IndexRange" Version="1.0.2" />
+    <PackageVersion Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageVersion Include="Npgsql" Version="6.0.4" />
+    <PackageVersion Include="Quartz" Version="3.4.0" />
+    <PackageVersion Include="Quartz.Serialization.Json" Version="3.4.0" />
+    <PackageVersion Include="System.Linq.Async" Version="6.0.1" />
+    <PackageVersion Include="System.Threading.Tasks.Dataflow" Version="6.0.0" />
+    <PackageVersion Include="xunit" Version="2.4.1" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5" />
+    <PackageVersion Include="Unquote" Version="6.1.0" />
+  </ItemGroup>
+
+</Project>

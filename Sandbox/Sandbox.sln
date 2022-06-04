@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29209.62
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.TestConsoleApp", "Applications\Sandbox.TestConsoleApp\Sandbox.TestConsoleApp.csproj", "{6C0DA377-A7BB-4F40-8D62-6F76B6ABEBE7}"
 EndProject
@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC3D3EF9-253F-4741-A315-478A956ED6C2}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Academy", "Tests\Sandbox.Academy\Sandbox.Academy.csproj", "{45D586C5-FD62-40B8-BACE-F3331D0DD13B}"
@@ -26,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A95C2268
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{0C09A10F-C50C-437B-B29A-3EC71D64881C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.QuartzSample", "Applications\Sandbox.QuartzSample\Sandbox.QuartzSample.csproj", "{BA390CB9-E060-4ACD-8EB0-5B91792F4161}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.QuartzSample", "Applications\Sandbox.QuartzSample\Sandbox.QuartzSample.csproj", "{BA390CB9-E060-4ACD-8EB0-5B91792F4161}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

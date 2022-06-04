@@ -22,9 +22,9 @@ namespace Benchmarking
 
         private TestClass _instance;
 
-        private Action<TestClass, string> _backingFieldReflectionSetter;
+        private Action<TestClass, string>? _backingFieldReflectionSetter;
 
-        private Action<TestClass, string> _backingFieldILSetter;
+        private Action<TestClass, string>? _backingFieldILSetter;
 
         public BenchmarkingClass()
         {
@@ -51,7 +51,7 @@ namespace Benchmarking
         [Benchmark]
         public void SetReadOnlyPropertyFullyReflection()
         {
-            _backingFieldReflectionSetter(_instance, "New value 1");
+            _backingFieldReflectionSetter!(_instance, "New value 1");
         }
 
         [Benchmark]
@@ -62,7 +62,7 @@ namespace Benchmarking
             var method = new DynamicMethod(
               name: $"Set_{backingField.Name}",
               returnType: null,
-              parameterTypes: new[] { propertyInfo?.DeclaringType, propertyInfo?.PropertyType },
+              parameterTypes: new[] { propertyInfo?.DeclaringType!, propertyInfo?.PropertyType! },
               restrictedSkipVisibility: true
             );
 
@@ -78,7 +78,7 @@ namespace Benchmarking
         [Benchmark]
         public void SetReadOnlyPropertyReflectionWithIL()
         {
-            _backingFieldILSetter(_instance, "New value 2");
+            _backingFieldILSetter!(_instance, "New value 2");
         }
 
         private static (FieldInfo backingField, PropertyInfo? propertyInfo) GetReflectionInfo()

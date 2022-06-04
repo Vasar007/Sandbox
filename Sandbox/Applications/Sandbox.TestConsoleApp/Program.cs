@@ -1,38 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
 using MathNet.Numerics;
 
 namespace Sandbox.TestConsoleApp
 {
     public static class Program
     {
-        private static async Task Main()
+        private static int Main()
         {
-            Console.WriteLine("App started.");
-
             try
             {
-                //TestDateTime();
-                //Epplus.EpplusSamples.TestEpplusExcel();
-                //RollbackEngine.RollbackEngineSamples.TestTaskEngine();
-                //TestDirectory();
-                //TestPath();
+                Console.WriteLine("Console application started.");
+
+                TestDateTime();
+                Epplus.EpplusSamples.TestEpplusExcel();
+                RollbackEngine.RollbackEngineSamples.TestTaskEngine();
+                TestDirectory();
+                TestPath();
                 TestMath();
 
-                //Console.ReadLine();
+                return 0;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception occured:{Environment.NewLine}{ex}");
+                Console.WriteLine($"Error occurred:{Environment.NewLine}{ex.Message}");
+                return -1;
             }
             finally
             {
-                Console.WriteLine("App finished.");
+                Console.WriteLine("Console application stopped.");
+                Console.WriteLine("Press any key to close this window...");
+                Console.ReadKey();
             }
         }
 
@@ -73,8 +71,8 @@ namespace Sandbox.TestConsoleApp
             var observed = new double[] { 1, 2, 3, 4, 5 };
             var modelled = new double[] { 1.1, 2.1, 3.1, 4.1, 5.1 };
 
-            var a = GoodnessOfFit.CoefficientOfDetermination(observed, modelled);
-            var b = GoodnessOfFit.RSquared(observed, modelled);
+            _ = GoodnessOfFit.CoefficientOfDetermination(observed, modelled);
+            _ = GoodnessOfFit.RSquared(observed, modelled);
         }
     }
 }

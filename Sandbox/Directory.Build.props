@@ -1,0 +1,16 @@
+<Project>
+
+  <!-- Project properties -->
+  <PropertyGroup>
+    <AppPlatforms>x64</AppPlatforms>
+    <AppConfigurations>Debug;Release</AppConfigurations>
+    <AppTargetFramework>net6.0</AppTargetFramework>
+    <WindowsAppTargetFramework>net6.0-windows</WindowsAppTargetFramework>
+    <LibraryTargetFrameworks>net6.0</LibraryTargetFrameworks>
+    <TestTargetFrameworks>net6.0</TestTargetFrameworks>
+    <CSharpLangVersion>10.0</CSharpLangVersion>
+    <FSharpLangVersion>5.0</FSharpLangVersion>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+</Project>
