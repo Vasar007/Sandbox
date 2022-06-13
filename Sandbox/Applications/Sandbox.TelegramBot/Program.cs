@@ -6,6 +6,7 @@ using Telegram.Bot;
 using Sandbox.TelegramBot.Services;
 using Sandbox.TelegramBot.Options;
 using Telegram.Bot.Extensions.Polling;
+using System.Net.Http;
 
 namespace Sandbox.TelegramBot;
 
@@ -45,6 +46,16 @@ public static class Program
         //  https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0#typed-clients
         //  https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
         builder.Services.AddHttpClient("tgwebhook")
+            .ConfigurePrimaryHttpMessageHandler(provider =>
+            {
+                var handler = new HttpClientHandler();
+                if (!botConfig.ValidateServerCertificates)
+                {
+                    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+                }
+
+                return handler;
+            })
             .AddTypedClient<ITelegramBotClient>(httpClient => new TelegramBotClient(botConfig.BotToken, httpClient));
 
         // Dummy business-logic service
