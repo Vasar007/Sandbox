@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <Platforms>$(AppPlatforms)</Platforms>
@@ -15,7 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acolyte.NET" />
+    <PackageReference Include="HttpToSocks5Proxy" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" />
     <PackageReference Include="Telegram.Bot" />
     <PackageReference Include="Telegram.Bot.Extensions.Polling" />
   </ItemGroup>

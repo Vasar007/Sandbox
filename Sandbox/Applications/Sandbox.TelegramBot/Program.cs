@@ -2,33 +2,46 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Telegram.Bot;
+using Microsoft.Extensions.Logging;
 using Sandbox.TelegramBot.Services;
 using Sandbox.TelegramBot.Options;
+using Sandbox.TelegramBot.Services.Http;
+using Telegram.Bot;
 using Telegram.Bot.Extensions.Polling;
-using System.Net.Http;
 
 namespace Sandbox.TelegramBot;
 
 public static class Program
 {
+    private static readonly ILogger _logger = CreateLogger();
+
+    private static ILogger CreateLogger()
+    {
+        using var loggerFactory = LoggerFactory.Create(
+            builder => builder
+                .ClearProviders()
+                .AddConsole()
+        );
+        return loggerFactory.CreateLogger(typeof(Program));
+    }
+
     private static int Main(string[] args)
     {
         try
         {
-            Console.WriteLine("Console application started.");
+            _logger.LogInformation("Console application started.");
             RunInternal(args);
 
             return 0;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error occurred:{Environment.NewLine}{ex.Message}");
+            _logger.LogError(ex, $"Error occurred:{Environment.NewLine}{ex.Message}");
             return -1;
         }
         finally
         {
-            Console.WriteLine("Console application stopped.");
+            _logger.LogInformation("Console application stopped.");
             Console.WriteLine("Press any key to close this window...");
             Console.ReadKey();
         }
@@ -38,24 +51,21 @@ public static class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        var botConfig = builder.Configuration.GetSection("BotConfiguration").Get<BotOptions>();
+        var botConfig = builder.Configuration.GetSection(nameof(BotOptions)).Get<BotOptions>();
+        var httpOptions = builder.Configuration.GetSection(nameof(HttpClientOptions)).Get<HttpClientOptions>();
 
         // Register named HttpClient to get benefits of IHttpClientFactory
         // and consume it with ITelegramBotClient typed client.
         // More read:
         //  https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0#typed-clients
         //  https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
-        builder.Services.AddHttpClient("tgwebhook")
-            .ConfigurePrimaryHttpMessageHandler(provider =>
-            {
-                var handler = new HttpClientHandler();
-                if (!botConfig.ValidateServerCertificates)
-                {
-                    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-                }
 
-                return handler;
-            })
+        builder.Logging
+            .ClearProviders()
+            .AddConsole();
+
+        builder.Services
+            .AddHttpClientWithOptions(httpOptions, _logger)
             .AddTypedClient<ITelegramBotClient>(httpClient => new TelegramBotClient(botConfig.BotToken, httpClient));
 
         // Dummy business-logic service
@@ -91,12 +101,16 @@ public static class Program
             // If you'd like to make sure that the Webhook request comes from Telegram, we recommend
             // using a secret path in the URL, e.g. https://www.example.com/<token>.
             // Since nobody else knows your bot's token, you can be pretty sure it's us.
-            var token = botConfig.BotToken;
-            endpoints.MapControllerRoute(
-                name: "tgwebhook",
-                pattern: $"bot/{token}",
-                new { controller = "Webhook", action = "Post" }
-            );
+            if (botConfig.UseWebhook)
+            {
+                var token = botConfig.BotToken;
+                endpoints.MapControllerRoute(
+                    name: "tgwebhook",
+                    pattern: $"bot/{token}",
+                    new { controller = "Webhook", action = "Post" }
+                );
+            }
+
             endpoints.MapControllers();
         });
 
