@@ -2,7 +2,7 @@
 using Acolyte.Assertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Sandbox.TelegramBot.Options;
+using Sandbox.TelegramBot.Models.Options;
 
 namespace Sandbox.TelegramBot.Services.Http
 {

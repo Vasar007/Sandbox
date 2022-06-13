@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Sandbox.TelegramBot.Options;
+using Sandbox.TelegramBot.Models.Options;
 using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
 

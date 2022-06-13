@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 
-namespace Sandbox.TelegramBot.Options
+namespace Sandbox.TelegramBot.Models.Options
 {
     public sealed class HttpClientOptions
     {

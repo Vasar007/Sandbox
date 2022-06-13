@@ -4,10 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Sandbox.TelegramBot.Services;
-using Sandbox.TelegramBot.Options;
 using Sandbox.TelegramBot.Services.Http;
 using Telegram.Bot;
 using Telegram.Bot.Extensions.Polling;
+using Sandbox.TelegramBot.Models.Options;
+using Acolyte.Common.Monads;
 
 namespace Sandbox.TelegramBot;
 
@@ -51,8 +52,10 @@ public static class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        var botConfig = builder.Configuration.GetSection(nameof(BotOptions)).Get<BotOptions>();
-        var httpOptions = builder.Configuration.GetSection(nameof(HttpClientOptions)).Get<HttpClientOptions>();
+        var botOptionsSection = builder.Configuration.GetSection(nameof(BotOptions));
+        var botOptions = botOptionsSection.Get<BotOptions>();
+        var hcOptionsSection = builder.Configuration.GetSection(nameof(HttpClientOptions));
+        var hcOptions = hcOptionsSection.Get<HttpClientOptions>();
 
         // Register named HttpClient to get benefits of IHttpClientFactory
         // and consume it with ITelegramBotClient typed client.
@@ -65,10 +68,15 @@ public static class Program
             .AddConsole();
 
         builder.Services
-            .AddHttpClientWithOptions(httpOptions, _logger)
-            .AddTypedClient<ITelegramBotClient>(httpClient => new TelegramBotClient(botConfig.BotToken, httpClient));
+            .Configure<BotOptions>(botOptionsSection)
+            .Configure<HttpClientOptions>(hcOptionsSection);
 
-        // Dummy business-logic service
+        builder.Services
+            .AddHttpClientWithOptions(hcOptions, _logger)
+            .ApplyIf(botOptions.UseTypedClient, x => x.AddTypedClient<ITelegramBotClient>(httpClient => new TelegramBotClient(botOptions.BotToken, httpClient)));
+
+        builder.Services.ApplyIf(!botOptions.UseTypedClient, x => x.AddScoped<ITelegramBotClient, BotService>());
+
         builder.Services.AddScoped<IUpdateReceiver, DefaultUpdateReceiver>(provider => new DefaultUpdateReceiver(provider.GetRequiredService<ITelegramBotClient>()));
         builder.Services.AddScoped<IUpdateHandler, UpdateHandler>();
         builder.Services.AddScoped<HandleUpdateService>();
@@ -76,7 +84,7 @@ public static class Program
         // There are several strategies for completing asynchronous tasks during startup.
         // Some of them could be found in this article https://andrewlock.net/running-async-tasks-on-app-startup-in-asp-net-core-part-1/
         // We are going to use IHostedService to add and later remove Webhook
-        if (botConfig.UseWebhook)
+        if (botOptions.UseWebhook)
             builder.Services.AddHostedService<ConfigureWebhook>();
         else
             builder.Services.AddHostedService<ConfigurePolling>();
@@ -101,9 +109,9 @@ public static class Program
             // If you'd like to make sure that the Webhook request comes from Telegram, we recommend
             // using a secret path in the URL, e.g. https://www.example.com/<token>.
             // Since nobody else knows your bot's token, you can be pretty sure it's us.
-            if (botConfig.UseWebhook)
+            if (botOptions.UseWebhook)
             {
-                var token = botConfig.BotToken;
+                var token = botOptions.BotToken;
                 endpoints.MapControllerRoute(
                     name: "tgwebhook",
                     pattern: $"bot/{token}",

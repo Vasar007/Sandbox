@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Acolyte.Assertions;
 using Microsoft.Extensions.Options;
-using Sandbox.TelegramBot.Options;
+using Sandbox.TelegramBot.Models.Options;
 
 namespace Sandbox.TelegramBot.Services.Http
 {

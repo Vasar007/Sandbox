@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Acolyte.Assertions;
 using Microsoft.Extensions.Logging;
 using Polly;
-using Sandbox.TelegramBot.Options;
+using Sandbox.TelegramBot.Models.Options;
 
 namespace Sandbox.TelegramBot.Services.Http
 {
